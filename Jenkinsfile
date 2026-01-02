@@ -1,12 +1,5 @@
 pipeline {
-    //agent any
-
-    agent {
-        docker {
-            image 'docker:24-dind'
-            args '--privileged'
-        }
-    }
+    agent any
 
     options {
         disableConcurrentBuilds() // avoid concurrent deployment conflicts
