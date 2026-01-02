@@ -1,5 +1,12 @@
 pipeline {
-    agent any
+    //agent any
+
+    agent {
+        docker {
+            image 'docker:24-cli'
+            args '-v //var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     options {
         disableConcurrentBuilds() // avoid concurrent deployment conflicts
